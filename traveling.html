@@ -1,0 +1,175 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var tigger = {
+        character: "Tigger",
+        greet: function(){
+            console.log("this is tigers house!");
+            }
+        };
+
+        var pooh = {
+        character: "pooh",
+        greet: function(){
+            console.log("this is poohs house!");
+            }
+        };
+
+        var piglet = {
+        character: "piglet",
+        greet: function(){
+            console.log("this is piglet house!");
+            }
+        };
+
+        var owl = {
+        character: "owl",
+        greet: function(){
+            console.log("this is owl's house!");
+            }
+        };
+
+        var cr = {
+        character: "Christopher Robbins",
+        greet: function(){
+            console.log("this is Christopher Robin's house!");
+            }
+        };
+
+        var rabbit = {
+        character: "rabbit",
+        greet: function(){
+            console.log("this is rabbits house!");
+            }
+        }; 
+
+        var bees = {
+        character: "bees",
+        greet: function(){
+            console.log("this is bees house!");
+            }
+        }; 
+
+        var gopher = {
+        character: "gopher",
+        greet: function(){
+            console.log("this is gopher's house!");
+            }
+        }; 
+
+        var kanga = {
+        character: "kanga",
+        greet: function(){
+            console.log("this is kanga house!");
+            }
+        }; 
+
+        var eeyore = {
+        character: "eeyore",
+        greet: function(){
+            console.log("this is eeyore's house!");
+            }
+        }; 
+
+        var heffalumps = {
+        character: "heffalumps",
+        greet: function(){
+            console.log("this is heffalumps' house!");
+            }
+        }; 
+        var houses = [tigger, pooh, bees, piglet, owl, cr, rabbit,kanga,heffalumps, gopher, eeyore];
+
+        
+        tigger.north = pooh;
+        console.log("first: ", tigger);
+        pooh.south = tigger;
+        pooh.east = bees;
+        pooh.north = cr;
+        pooh.west = piglet;
+        bees.west = pooh;
+        bees.north = rabbit;
+        piglet.east = pooh;
+        piglet.north = owl;
+        owl.south = piglet;
+        owl.east = cr;
+        cr.west = owl;
+        cr.south = pooh;
+        cr.north = kanga;
+        cr.east = rabbit;
+        kanga.south = cr;
+        kanga.north = eeyore;
+        rabbit.south = bees;
+        rabbit.west = cr;
+        rabbit.east = gopher;
+        gopher.east = rabbit
+        eeyore.south = kanga;
+        eeyore.east = heffalumps;
+        heffalumps.west = eeyore;
+        console.log("TEST TEST")
+        console.log("hello" , tigger);
+
+
+        var player = {
+            location: tigger,
+            honey: false, 
+        };
+
+        function move(direction) {
+        var mydict = {
+            "north": player.location.north,
+            "south": player.location.south,
+            "east": player.location.east,
+            "west": player.location.west
+        }
+        if (direction in player.location){
+            player.location = mydict[direction]
+            console.log('You are now at', player.location.character, "house") 
+            console.log(player.location.greet())
+        }
+        else {
+            console.log("you may not go that way")
+        }
+    } 
+    var mission = mission();
+
+    function mission(){
+        var randomhouse = houses[Math.floor(Math.random()*houses.length)];
+        console.log("bring honey to:", randomhouse); 
+        return randomhouse
+
+    }
+
+    function pickup(){
+        if (player.location === bees){
+            player.honey = true;
+        }
+        else {
+            console.log('there is no honey to pick up here')
+        }
+
+    } 
+    function drop(){
+        if (player.location == mission) {
+            player.honey = false;
+            console.log('YOU WIN!!!')
+
+        }
+        else {
+            console.log('You cannot drop here')
+        }
+    }
+    
+       
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

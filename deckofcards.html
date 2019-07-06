@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        class card {
+            constructor (suit,name){
+                this.suit = suit;
+                this.name = name; 
+                 
+            }
+            show(){
+                console.log(`the ${this.name} of ${this.suit} , is worth, ${this.value}`);
+            }
+        }
+        class deck {
+            constructor(){
+                this.arr = [];
+                var cards = {1:"ace", 2: 'two', 3:"three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11:"jack", 12:"queen", 13: "king"};
+                console.log("hello")
+        
+                for (var i= 1 ; i < 14; i++){
+                    this.arr.push (new card('hearts', cards[i], i));
+                    this.arr.push (new card('spades', cards[i],i));
+                    this.arr.push (new card('clubs', cards[i], i));
+                    this.arr.push (new card('diamonds', cards[i], i));
+                }; 
+            
+            } 
+            printdeck(){
+                console.log(this.arr)
+            }
+            
+            
+            
+        }
+        var mydeck = new deck();
+        mydeck.printdeck();
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
